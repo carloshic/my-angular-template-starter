@@ -40,6 +40,14 @@
   @include component-login-box-shadow($theme);
 }
 
+$custom-typography: mat-typography-config(
+  $font-family: "Roboto Condensed",
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500),
+);
+
+@include angular-material-typography($custom-typography);
+
 // Define the light theme.
 $primary: mat-palette($mat-indigo);
 $accent:  mat-palette($mat-pink, A200, A100, A400);

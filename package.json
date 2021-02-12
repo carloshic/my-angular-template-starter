@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-github-page": "ng build --prod --base-href=https://carloshic.github.io/my-angular-template-starter/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
