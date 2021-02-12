@@ -1,0 +1,49 @@
+<mat-toolbar color="primary" class="app-navbar-header mat-elevation-z6">
+  <mat-toolbar-row class="app-navbar-header">
+    <button
+      *ngIf="showMenuIcon"
+      mat-button
+      class="sidenav-toggle"
+      (click)="toggleSideNav.emit()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>Sistema Titulo</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button class="app-navbar-hide-small app-button">Menu</a>
+      <a
+        mat-button
+        class="app-navbar-hide-small app-button"
+        >Guides</a
+      >
+      <a mat-button class="app-navbar-hide-small app-button">Products</a>
+      <a mat-button class="app-navbar-hide-small app-button">Clients</a>
+      <a mat-button class="app-navbar-hide-small app-button">Reports</a>
+    </div>
+    <div class="flex-spacer"></div>
+    <div>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item disabled>
+          <mat-icon>account_circle</mat-icon>
+          <span>¡Hola Carlos!</span>
+        </button>
+        <button mat-menu-item (click)="onLogout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+    <app-theme-picker></app-theme-picker>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="app-navbar app-navbar-show-small">
+    <a mat-button class="app-navbar-link">Menu</a>
+    <a mat-button class="app-navbar-link">Guides</a>
+    <a mat-button class="app-navbar-link">Products</a>
+    <a mat-button class="app-navbar-link">Clients</a>
+    <a mat-button class="app-navbar-link">Reports</a>
+  </mat-toolbar-row>
+</mat-toolbar>

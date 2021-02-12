@@ -1,0 +1,24 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-box app_component_login_box_shadow" autocomplete="chrome-off">
+    <h1>Acceso</h1>
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre de Usuario</mat-label>
+      <input formControlName="username" matInput placeholder="Nombre de Usuario" autocomplete="off">
+      <mat-icon matSuffix>perm_identity</mat-icon>
+      <mat-hint>Ingresa tu usuario</mat-hint>
+      <mat-error *ngIf="form.controls.username.errors?.required">Este campo es requerido</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input type="password" formControlName="password" matInput placeholder="Contraseña" autocomplete="off">
+      <mat-icon matSuffix>lock</mat-icon>
+      <mat-hint>Ingresa tu contraseña</mat-hint>
+      <mat-error *ngIf="form.controls.password.errors?.required">Este campo es requerido</mat-error>
+    </mat-form-field>
+    <mat-error *ngIf="innerErrorMessage"> {{ innerErrorMessage }}</mat-error>
+    <button *ngIf="!loading" type="submit" mat-raised-button color="primary" [disabled]="form.invalid">
+      Login
+    </button>
+    <mat-spinner *ngIf="loading" diameter="30"></mat-spinner>
+  </form>
+</div>

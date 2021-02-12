@@ -1,0 +1,18 @@
+@import '../app-theme';
+
+$primary: mat-palette($mat-indigo);
+$accent:  mat-palette($mat-pink, A200, A100, A400);
+
+// Define the light theme.
+.indigo-pink-dark {  
+  $theme: mat-dark-theme($primary, $accent);
+  @include angular-material-theme($theme);
+  @include material-app-theme($theme);
+}
+
+// Define the light theme.
+.indigo-pink-light {
+  $theme: mat-light-theme($primary, $accent);
+  @include angular-material-theme($theme);
+  @include material-app-theme($theme);
+}

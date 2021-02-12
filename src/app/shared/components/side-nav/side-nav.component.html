@@ -1,0 +1,43 @@
+<div class="app-component-viewer-nav">
+  <div class="app-component-viewer-nav-content">
+    <div *ngFor="let menu of menus">
+      <mat-nav-list *ngIf="menu.childs.length === 0">
+        <a
+          mat-list-item
+          class="menu-single"
+          [routerLink]="menu.path"
+          routerLinkActive="app-component-viewer-sidenav-item-selected"
+          (click)="onSelect(menu.name)"
+        >
+          <mat-icon matListIcon>radio_button_unchecked</mat-icon>
+          {{ menu.name }}
+        </a>
+      </mat-nav-list>
+
+      <mat-expansion-panel color="primary" *ngIf="menu.childs.length > 0">
+        <mat-expansion-panel-header color="primary">
+          <mat-panel-title color="primary">
+            <mat-icon class="mat-panel-title-icon"
+              >radio_button_checked</mat-icon
+            >
+            <span class="title-menu">{{ menu.name }}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list>
+          <a
+            *ngFor="let child of menu.childs"
+            mat-list-item
+            [routerLink]="child.path"
+            routerLinkActive="app-component-viewer-sidenav-item-selected"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="onSelect(child.name)"
+          >
+            <mat-icon matListIcon>radio_button_unchecked</mat-icon>
+            <span>{{ child.name }}</span>
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+    </div>
+  </div>
+</div>

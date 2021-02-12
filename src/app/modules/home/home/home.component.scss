@@ -1,0 +1,170 @@
+@import '../../../../styles/constants';
+$sidenav-width: 240px;
+
+
+mat-sidenav-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+app-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+@media screen and (min-width: 561px) and (max-width: 720px) {
+  mat-sidenav-container {
+    top: 144px;
+  }
+}
+
+
+@media (max-width: 555px) {
+  mat-sidenav-container {
+    top: 128px;
+  }
+}
+
+app-sidenav {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.app-component-viewer-sidenav-container {
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.app-component-viewer-sidenav {
+  overflow: auto;
+}
+
+.app-component-sidenav-inner-content {
+  display: flex;
+  flex-direction: row;
+
+  // The rule will match the element following the router-outlet which will be the routed component.
+  router-outlet + * {
+    flex-grow: 1;
+    overflow: hidden;
+
+  }
+}
+
+router-outlet {
+  padding: 10px;
+}
+
+.mat-drawer {
+  &::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+}
+
+app-side-nav {
+  position: sticky;
+  top: 0;
+}
+
+.app-component-viewer-nav {
+  position: sticky;
+  top: 0;
+
+  .app-component-viewer-nav-content {
+    width: $sidenav-width;
+    height: 100vh;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+      width: 4px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0 0 5px 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    li {
+      font-size: 13px;
+      line-height: 16px;
+      margin: 0;
+      padding: 5px 15px 5px 20px;
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+    }
+  }
+}
+
+.app-component-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.app-component-sidenav-inner-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.app-component-sidenav-body-content {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+div .mat-list-base {
+  padding-top: 0;
+}
+
+div.app-component-viewer-nav-content .mat-nav-list .mat-list-item .mat-list-item-content {
+  padding-left: 25px;
+}
+
+@media (max-width: $small-breakpoint-width) {
+  // Add specific rule to prevent default rule conflict
+  .app-component-viewer-sidenav-container .app-component-viewer-sidenav {
+    // position right above the content
+    z-index: 4;
+  }
+
+  .app-component-viewer-nav {
+    position: relative;
+    top: 0;
+
+    .app-component-viewer-nav-content {
+      box-sizing: border-box;
+      margin: 0;
+      max-height: initial;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .app-component-viewer-sidenav-container {
+    flex: 1 0 auto;
+  }
+
+  .app-component-sidenav-body-content {
+    flex-direction: column;
+  }
+}
+
+app-navbar {
+  box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
+}

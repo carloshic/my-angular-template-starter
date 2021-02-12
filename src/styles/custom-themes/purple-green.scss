@@ -1,0 +1,18 @@
+@import '../app-theme';
+
+$primary: mat-palette($mat-purple);
+$accent:  mat-palette($mat-green, A200, A100, A400);
+
+// Define the dark theme.
+.purple-green-dark {  
+  $theme: mat-dark-theme($primary, $accent);
+  @include angular-material-theme($theme);
+  @include material-app-theme($theme);
+}
+
+// Define the dark theme.
+.purple-green-light {
+  $theme: mat-light-theme($primary, $accent);
+  @include angular-material-theme($theme);
+  @include material-app-theme($theme);
+}

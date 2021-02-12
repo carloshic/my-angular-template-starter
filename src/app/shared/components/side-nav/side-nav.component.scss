@@ -1,0 +1,61 @@
+@import '../../../../styles/constants.scss';
+
+.app-component-viewer-nav {
+  position: sticky;
+  top: 0;
+
+  .app-component-viewer-nav-content {
+    width: $sidenav-width;
+    height: 100vh;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+      width: 4px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0 0 5px 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    li {
+      font-size: 13px;
+      line-height: 16px;
+      margin: 0;
+      padding: 5px 15px 5px 20px;
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+    }
+  }
+}
+
+.mat-panel-title-icon {
+  padding: 4px;
+}
+
+.title-menu {
+  padding-top: 7px;
+  padding-left: 5px;
+}
+
+::ng-deep .mat-expansion-panel-header {
+  padding: 0 12px 0px 5px!important;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 !important;
+}
+
+a.menu-child {
+  padding-left: 0px !important;
+}
+
+::ng-deep a.menu-single .mat-list-item-content {
+  padding: 0px 4px !important;
+}
