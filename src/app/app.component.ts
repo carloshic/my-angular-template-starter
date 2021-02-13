@@ -1,3 +1,4 @@
+import { AuthService } from './modules/auth/shared/services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ISiteTheme, ThemeStorageService } from './core/services/theme-storage';
@@ -12,6 +13,7 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private authService: AuthService,
     public themeStorageService: ThemeStorageService,
   ) {}
 
@@ -27,11 +29,24 @@ export class AppComponent implements OnInit {
     this.themeStorageService.onThemeUpdate.subscribe((theme) => {
       this.theme = theme;
     });
+
+    if (this.authService.isAuthenticated()) {
+      this.navigateToHome();
+    } else {
+      this.navigateToLogin();
+    }
   }
 
   navigateToLogin(): void {
     this.router
     .navigate(['auth', 'login'], {
+      relativeTo: this.activatedRoute
+    });
+  }
+
+  navigateToHome(): void {
+    this.router
+    .navigate(['home'], {
       relativeTo: this.activatedRoute
     });
   }

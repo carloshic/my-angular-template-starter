@@ -12,12 +12,11 @@ export class LoginFormComponent implements OnInit {
   form: FormGroup;
   innerErrorMessage: string;
 
-  
   @Input() set errorMessage(message: string) {
     this.innerErrorMessage = message;
   }
-  
-  @Input() loading: boolean = false;
+
+  @Input() loading = false;
 
   @Output() loginSubmit: EventEmitter<ILogin> = new EventEmitter();
 
@@ -32,7 +31,7 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.innerErrorMessage = null;
     if (this.form.valid) {
       this.loginSubmit.emit(this.form.value);
