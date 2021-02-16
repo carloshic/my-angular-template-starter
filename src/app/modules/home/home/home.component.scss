@@ -22,7 +22,7 @@ app-navbar {
 
 @media screen and (min-width: 561px) and (max-width: 720px) {
   mat-sidenav-container {
-    top: 144px;
+    top: 128px;
   }
 }
 
@@ -53,15 +53,12 @@ app-sidenav {
   flex-direction: row;
 
   // The rule will match the element following the router-outlet which will be the routed component.
-  router-outlet + * {
-    flex-grow: 1;
-    overflow: hidden;
 
+  .router-outlet-wrapper {
+    padding: 15px;
+    flex-grow: 1 !important;
+    overflow: hidden !important;
   }
-}
-
-router-outlet {
-  padding: 10px;
 }
 
 .mat-drawer {
@@ -69,11 +66,6 @@ router-outlet {
     height: 4px;
     width: 4px;
   }
-}
-
-app-side-nav {
-  position: sticky;
-  top: 0;
 }
 
 .app-component-viewer-nav {

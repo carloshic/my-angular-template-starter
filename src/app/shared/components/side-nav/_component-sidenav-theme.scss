@@ -1,5 +1,5 @@
 @import '~@angular/material/theming';
-@import './constants';
+@import '../../../../styles/constants';
 
 @mixin component-viewer-sidenav-theme($theme) {
   $primary: map-get($theme, primary);
@@ -24,7 +24,7 @@
       }
 
       &.app-component-viewer-sidenav-item-selected {
-        background: rgba(mat-color($primary, default), 0.15);
+        background: rgba(mat-color($primary, default), 0.25);
         color: lighten(mat-color($primary, default), if($is-dark-theme, 25%, 0));
       }
 

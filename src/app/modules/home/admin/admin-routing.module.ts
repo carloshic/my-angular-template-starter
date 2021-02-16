@@ -11,15 +11,16 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'role-list',
+        redirectTo: 'roles',
       },
       {
-        path: 'role-list',
+        path: 'roles',
         component: RoleListComponent,
         canLoad: [RoleGuard],
         canActivate: [RoleGuard],
         data: {
-          roles: ['ADMIN']
+          roles: ['ADMIN'],
+          title: 'Roles'
         }
       },
     ],

@@ -8,9 +8,10 @@ import { HomeRoutingModule } from './home-routing.module';
 
 import { HomeComponent } from './home';
 import { WelcomeComponent } from './welcome';
+import { ForbiddenComponent } from './forbidden';
 
 @NgModule({
-  declarations: [HomeComponent, WelcomeComponent],
+  declarations: [HomeComponent, WelcomeComponent, ForbiddenComponent],
   imports: [
     CommonModule,
     HttpClientModule,

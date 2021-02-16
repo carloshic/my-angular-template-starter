@@ -1,27 +1,28 @@
-<div>
-  <app-navbar class="mat-elevation-z6" [showMenuIcon]="(isScreenSmall | async)" (toggleSideNav)="toggleSideNav()"></app-navbar>
-  <mat-sidenav-container class="app-component-viewer-sidenav-container">
-    <!-- If on small screen, menu resides in drawer -->
-    <mat-sidenav #sidenav class="app-component-viewer-sidenav"
-                *ngIf="(isScreenSmall | async)"
-                [opened]="(isScreenSmall | async) === false"
-                [mode]="(isScreenSmall | async) ? 'over' : 'side'"
-                [fixedInViewport]="(isScreenSmall | async)"
-                [fixedTopGap]="(isExtraScreenSmall | async) ? 144 : 80">
-      <app-side-nav></app-side-nav>
-    </mat-sidenav>
-    <div class="app-component-sidenav-content">
-      <app-page-header></app-page-header>
-      <div class="app-component-sidenav-inner-content">
-        <main class="app-component-sidenav-body-content">
-          <!-- If on large screen, menu resides to left of content -->
-          <app-side-nav
-            *ngIf="(isScreenSmall | async) === false">
-          </app-side-nav>
+
+<app-navbar class="mat-elevation-z6" [showMenuIcon]="(isScreenSmall | async)" (toggleSideNav)="toggleSideNav()"></app-navbar>
+<mat-sidenav-container class="app-component-viewer-sidenav-container">
+  <!-- If on small screen, menu resides in drawer -->
+  <mat-sidenav #sidenav class="app-component-viewer-sidenav"
+              *ngIf="(isScreenSmall | async)"
+              [opened]="(isScreenSmall | async) === false"
+              [mode]="(isScreenSmall | async) ? 'over' : 'side'"
+              [fixedInViewport]="(isScreenSmall | async)"
+              [fixedTopGap]="(isExtraScreenSmall | async) ? 144 : 80">
+    <app-side-nav></app-side-nav>
+  </mat-sidenav>
+  <div class="app-component-sidenav-content">
+    <app-page-header></app-page-header>
+    <div class="app-component-sidenav-inner-content">
+      <main class="app-component-sidenav-body-content">
+        <!-- If on large screen, menu resides to left of content -->
+        <app-side-nav
+          *ngIf="(isScreenSmall | async) === false">
+        </app-side-nav>
+        <div class="router-outlet-wrapper">
           <router-outlet></router-outlet>
-        </main>
-        <app-page-footer></app-page-footer>
-      </div>
+        </div>
+      </main>
+      <app-page-footer></app-page-footer>
     </div>
-  </mat-sidenav-container>
-</div>
+  </div>
+</mat-sidenav-container>

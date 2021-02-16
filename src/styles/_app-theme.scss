@@ -1,6 +1,8 @@
 @import '~@angular/material/theming';
-@import './component-sidenav-theme';
-@import './component-login-theme';
+@import './svg-theme';
+@import '../app/shared/components/side-nav/component-sidenav-theme';
+@import '../app/modules/home/forbidden/forbidden-theme';
+@import '../app/modules/auth/pages/login/component-login-theme';
 
 // Styles for the docs app that are based on the current theme.
 @mixin material-app-theme($theme) {
@@ -36,19 +38,13 @@
     background: mat-color($next-theme, 900) !important;
   }
 
+  .route-entrance-animation {  
+    animation: slideInUp;
+    animation-duration: 0.5s;
+  }
+
   @include component-viewer-sidenav-theme($theme);
   @include component-login-box-shadow($theme);
+  @include app-site-svg-theme($theme);
+  @include forbidden-theme($theme)
 }
-
-$custom-typography: mat-typography-config(
-  $font-family: "Roboto Condensed",
-  $headline: mat-typography-level(32px, 48px, 700),
-  $body-1: mat-typography-level(16px, 24px, 500),
-);
-
-@include angular-material-typography($custom-typography);
-
-// Define the light theme.
-$primary: mat-palette($mat-indigo);
-$accent:  mat-palette($mat-pink, A200, A100, A400);
-$theme: mat-light-theme($primary, $accent);

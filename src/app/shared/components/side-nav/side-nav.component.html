@@ -7,7 +7,7 @@
           class="menu-single"
           [routerLink]="menu.path"
           routerLinkActive="app-component-viewer-sidenav-item-selected"
-          (click)="onSelect(menu.name)"
+          (click)="onSelect(menu)"
         >
           <mat-icon matListIcon>radio_button_unchecked</mat-icon>
           {{ menu.name }}
@@ -31,7 +31,7 @@
             [routerLink]="child.path"
             routerLinkActive="app-component-viewer-sidenav-item-selected"
             [routerLinkActiveOptions]="{ exact: true }"
-            (click)="onSelect(child.name)"
+            (click)="onSelect(child)"
           >
             <mat-icon matListIcon>radio_button_unchecked</mat-icon>
             <span>{{ child.name }}</span>

@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { PageTitleService } from './../../../core/services';
+import { Component, OnInit } from '@angular/core';
+import { IMenu } from './../../../core/interfaces/menu.interface';
+import { SideMenuService } from './../../../core/services';
 
 @Component({
   selector: 'app-side-nav',
@@ -7,36 +8,18 @@ import { PageTitleService } from './../../../core/services';
   styleUrls: ['./side-nav.component.scss'],
 
 })
-export class SideNavComponent {
-  @Output() toggleSideNav: EventEmitter<void> = new EventEmitter();
+export class SideNavComponent implements OnInit {
 
-  currentItemId: string;
-
-  menus = [
-    {
-      id: 'Welcome',
-      path: 'welcome',
-      name: 'Google',
-      childs: []
-    },
-    {
-      id: 'Admin',
-      name: 'Admin',
-      childs: [
-        {
-          id: 'Roles',
-          path: 'admin/role-list',
-          name: 'Roles',
-        },
-      ]
-    },
-  ];
-
+  menus: IMenu[] = [];
   constructor(
-    private pageTitleService: PageTitleService
+    private sideMenuService: SideMenuService
   ) {}
 
-  onSelect(name: string): void {
-    this.pageTitleService.title = name;
+  ngOnInit(): void {
+    this.menus = this.sideMenuService.getMenus();
+  }
+
+  onSelect(menu: IMenu): void {
+    this.sideMenuService.select(menu);
   }
 }
