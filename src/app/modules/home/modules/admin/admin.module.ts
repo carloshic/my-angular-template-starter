@@ -1,6 +1,5 @@
-import { MaterialModule } from './../../../material/material.module';
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { SharedModule } from './../../../../shared/shared.module';
 import { AdminRoutingModule } from './admin-routing.module';
 import { ADMIN_PAGES } from './pages';
 
@@ -8,6 +7,6 @@ import { ADMIN_PAGES } from './pages';
   declarations: [
     ...ADMIN_PAGES
   ],
-  imports: [AdminRoutingModule, CommonModule, MaterialModule],
+  imports: [AdminRoutingModule, SharedModule],
 })
 export class AdminModule { }

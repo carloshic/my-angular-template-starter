@@ -9,7 +9,10 @@
   $nav-background-opacity: if($is-dark-theme, 0.2, 0.03);
   $nav-background-focus-opacity: if($is-dark-theme, 0.25, 0.08);
 
-  .app_component_login_box_shadow {
+  app-login-form .container {
+    background: lighten(mat-color($background, background), 5%);
+  }
+  .container__login-box-shadow {
     box-shadow: 0px 0px 15px 0px mat-color($primary);
     background: mat-color($background, background);
     color: mat-color($foreground, text);

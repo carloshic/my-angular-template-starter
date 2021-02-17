@@ -3,7 +3,7 @@ import { Component, NgZone, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ISiteTheme, ThemeStorageService } from '../../../core/services/theme-storage';
+import { ISiteTheme, ThemeStorageService } from '../../../../core/services/theme-storage';
 
 const EXTRA_SMALL_WIDTH_BREAKPOINT = 720;
 const SMALL_WIDTH_BREAKPOINT = 939;

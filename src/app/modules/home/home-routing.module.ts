@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ForbiddenComponent } from './forbidden';
-import { HomeComponent } from './home';
-import { WelcomeComponent } from './welcome';
+import { ForbiddenComponent } from './pages/forbidden';
+import { HomeComponent } from './pages/home';
+import { WelcomeComponent } from './pages/welcome';
 
 const routes: Routes = [
   {
@@ -30,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: 'admin',
-        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+        loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
       },
     ]
   },

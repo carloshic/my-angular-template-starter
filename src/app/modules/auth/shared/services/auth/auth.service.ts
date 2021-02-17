@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { StorageService } from '../../../../../core/services';
 import { IAuth, ILogin } from '../../interfaces';
 
@@ -30,7 +31,6 @@ export class AuthService {
   login(login: ILogin): Observable<IAuth> {
     return new Observable<IAuth>(observer => {
       const user = this.users.find(x => x.username === login.username && x.password === login.password);
-      setTimeout(() => {
       if (user) {
           observer.next({
             _id: new Date().getTime().toString(),
@@ -41,8 +41,7 @@ export class AuthService {
           observer.error(new Error('Invalid Login'));
         }
       observer.complete();
-      }, 1000);
-    });
+    }).pipe(delay(1000));
   }
 
   logout(): void {

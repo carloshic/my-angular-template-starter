@@ -23,6 +23,7 @@ export class LoginComponent {
   }
 
   login(login: ILogin): void {
+    this.errorMessage = null;
     this.loading = true;
 
     const login$ = this.authService.login({

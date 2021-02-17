@@ -1,4 +1,4 @@
-import { RoleGuard } from './../../../core/guards/role/role.guard';
+import { RoleGuard } from './../../../../core/guards/role/role.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent, RoleListComponent } from './pages';

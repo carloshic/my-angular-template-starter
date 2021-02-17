@@ -30,9 +30,7 @@ export class AppComponent implements OnInit {
       this.theme = theme;
     });
 
-    if (this.authService.isAuthenticated()) {
-      this.navigateToHome();
-    } else {
+    if (!this.authService.isAuthenticated()) {
       this.navigateToLogin();
     }
   }

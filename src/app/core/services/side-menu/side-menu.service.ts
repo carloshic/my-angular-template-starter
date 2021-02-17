@@ -22,9 +22,19 @@ export class SideMenuService {
       path: 'admin',
       childs: [
         {
-          id: 'Roles',
+          id: 'roles',
           path: 'admin/roles',
           name: 'Roles',
+        },
+        {
+          id: 'menus',
+          path: 'admin/menus',
+          name: 'Menus',
+        },
+        {
+          id: 'Actions',
+          path: 'admin/actions',
+          name: 'Actions',
         },
       ]
     },
