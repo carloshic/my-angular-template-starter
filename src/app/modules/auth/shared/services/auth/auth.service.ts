@@ -9,7 +9,8 @@ import { IAuth, ILogin } from '../../interfaces';
 })
 export class AuthService {
 
-  static storageKey = 'auth';
+  static storageAuthKey = 'auth';
+  static storageTokenKey = 'token';
 
   users = [
     {
@@ -45,22 +46,27 @@ export class AuthService {
   }
 
   logout(): void {
-    this.storageService.removeItem(AuthService.storageKey);
+    this.storageService.removeItem(AuthService.storageAuthKey);
   }
 
   setLogin(auth: IAuth): void {
-    this.storageService.setItem(AuthService.storageKey, auth);
+    this.storageService.setItem(AuthService.storageAuthKey, auth);
+    this.storageService.setItem(AuthService.storageTokenKey, '[token]');
   }
 
-  getLogin(): IAuth {
+  getLoginInfo(): IAuth {
     if (this.isAuthenticated()) {
-      return this.storageService.getItem(AuthService.storageKey);
+      return this.storageService.getItem(AuthService.storageAuthKey);
     } else {
       throw new Error('User is not loggedI');
     }
   }
 
+  getToken(): string {
+    return this.storageService.getItem<string>(AuthService.storageTokenKey);
+  }
+
   isAuthenticated(): boolean {
-    return this.storageService.getItem<IAuth>(AuthService.storageKey) !== null;
+    return this.storageService.getItem<IAuth>(AuthService.storageAuthKey) !== null;
   }
 }

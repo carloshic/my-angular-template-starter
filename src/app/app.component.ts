@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
-    public themeStorageService: ThemeStorageService,
+    private themeStorageService: ThemeStorageService,
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +32,8 @@ export class AppComponent implements OnInit {
 
     if (!this.authService.isAuthenticated()) {
       this.navigateToLogin();
+    } else {
+      this.navigateToHome();
     }
   }
 

@@ -32,7 +32,7 @@ export class RoleGuard implements CanLoad, CanActivate {
   }
 
   private hasRole(roles: string[] = []): boolean {
-    const auth = this.authService.getLogin();
+    const auth = this.authService.getLoginInfo();
 
     for (const role of roles) {
       for (const userRole of auth.roles) {
